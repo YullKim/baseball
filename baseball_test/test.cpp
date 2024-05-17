@@ -7,3 +7,9 @@ TEST(BaseballGame, ThrowExceiptionWhenInputLengthIsUnmached) {
 	EXPECT_THROW(game.guess(string("12")), length_error);
 
 }
+
+TEST(BaseballGame, ThrowExceiptionWhenInputInvalidChar) {
+	Baseball game;
+	EXPECT_THROW(game.guess(string("12s")), invalid_argument);
+
+}
