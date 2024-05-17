@@ -23,3 +23,13 @@ TEST_F(BaseballFixture, ThrowExceiptionWhenInputInvalidCase) {
 	assertIllegalArgument("12s");
 	assertIllegalArgument("121");
 }
+
+TEST_F(BaseballFixture, ReturnSolvedResultIfMaatchedNumber) {
+	Baseball game;
+	GuessResult result = game.guess("123");
+
+	EXPECT_TRUE(result.solved);
+	EXPECT_EQ(3, result.strikes);
+	EXPECT_EQ(0, result.balls);
+
+}

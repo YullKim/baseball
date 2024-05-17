@@ -1,10 +1,18 @@
 #include <iostream>
 using namespace std;
 
+struct GuessResult {
+	bool solved;
+	int strikes;
+	int balls;
+};
+
 class Baseball {
 public:
-	void guess(const string& guessNumber) {
+	GuessResult guess(const string& guessNumber) {
+		GuessResult result;
 		assertIllegalArgument(guessNumber);
+		return {true, 3, 0};
 	}
 	void assertIllegalArgument(const std::string& guessNumber)
 	{
