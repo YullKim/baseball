@@ -19,15 +19,11 @@ public:
 			return {true, 3, 0};
 		}
 		int strikeCnt = 0;
-		if (guessNumber[0] == question[0]) {
-			strikeCnt++;
-		} 
-		if (guessNumber[1] == question[1]) {
-			strikeCnt++;
-		} 	
-		if (guessNumber[2] == question[2]) {
-			strikeCnt++;
-		} 
+		for (int index = 0; index < 3; index++) {
+			if (guessNumber[index] == question[index]) {
+				strikeCnt++;
+			}
+		}
 		
 		return { false, strikeCnt ,0 };
 	}
