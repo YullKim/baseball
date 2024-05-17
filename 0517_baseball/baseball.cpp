@@ -24,8 +24,18 @@ public:
 				strikeCnt++;
 			}
 		}
+
+		int ballCnt = 0;
+		for (int left = 0; left < 3; left++) {
+			for (int right = 0; right < 3; right++) {
+				if (left == right) continue;
+				if (guessNumber[left] == question[right]) {
+					ballCnt++;
+				}
+			}
+		}
 		
-		return { false, strikeCnt ,0 };
+		return { false, strikeCnt ,ballCnt };
 	}
 	void assertIllegalArgument(const std::string& guessNumber)
 	{
