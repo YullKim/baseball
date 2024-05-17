@@ -18,18 +18,17 @@ public:
 		if (guessNumber == question) {
 			return {true, 3, 0};
 		}
-		int strikeCnt = 0;
-		for (int index = 0; index < 3; index++) {
-			if (guessNumber[index] == question[index]) {
-				strikeCnt++;
-			}
-		}
 
+		int strikeCnt = 0;
 		int ballCnt = 0;
 		for (int left = 0; left < 3; left++) {
 			for (int right = 0; right < 3; right++) {
-				if (left == right) continue;
-				if (guessNumber[left] == question[right]) {
+				if (left == right) {
+					if (guessNumber[left] == question[right]) {
+						strikeCnt++;
+					}
+				}
+				else if (guessNumber[left] == question[right]) {
 					ballCnt++;
 				}
 			}
