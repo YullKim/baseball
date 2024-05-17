@@ -2,14 +2,26 @@
 #include "../0517_baseball/baseball.cpp"
 using namespace std;
 
-TEST(BaseballGame, ThrowExceiptionWhenInputLengthIsUnmached) {
+class BaseballFixture : public testing::Test {
+public:
 	Baseball game;
-	EXPECT_THROW(game.guess(string("12")), length_error);
+	void assertIllegalArgument(string guessNumber) {
+		//game.guess() 수행 후, Exception이 발생해야 PASS 이다.
+		try {
+			game.guess(string(guessNumber));
+			FAIL();
+		}
+		catch (exception e) {
+			//PASS
+		}
+	}
+};
 
+
+TEST_F(BaseballFixture, ThrowExceiptionWhenInputLengthIsUnmached) {
+	assertIllegalArgument("12");
 }
 
-TEST(BaseballGame, ThrowExceiptionWhenInputInvalidChar) {
-	Baseball game;
-	EXPECT_THROW(game.guess(string("12s")), invalid_argument);
-
+TEST_F(BaseballFixture, ThrowExceiptionWhenInputInvalidChar) {
+	assertIllegalArgument("12s");
 }
