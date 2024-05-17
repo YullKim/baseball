@@ -1,7 +1,9 @@
-
-
+#include <iostream>
+using namespace std;
 
 class Baseball {
 public:
-//tag
+	void guess(const string& str) {
+		throw length_error("Must be three letters");
+	}
 };
